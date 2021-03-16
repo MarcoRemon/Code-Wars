@@ -3,8 +3,11 @@ package MarcoRemon.company;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
+    private static Scanner scanner= new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -67,6 +70,35 @@ public class Main {
 
     public static void testing(int a){
         System.out.println("testing brancheo nomas.");
+    }
+
+    public static void numeroImpar() {
+
+        ArrayList<Integer> impares = new ArrayList<>();
+
+        System.out.println("Digite numero:");
+
+        int n = scanner.nextInt();
+        scanner.nextLine();
+
+        while (n >= 1) {
+            int last = n % 10;
+            n=n/10;
+            if (last % 2 != 0) {
+                impares.add(last);
+                System.out.println(last + " es impar. Se agrega a la lista.");
+            }
+            else System.out.println(last + " no es impar. No se agrega a la lista");
+        }
+
+
+        System.out.println("Los numeros impares son:");
+
+        for (Integer impare : impares) {
+            System.out.print(impare + " ");
+        }
+
+
     }
 
 }
