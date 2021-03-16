@@ -18,6 +18,8 @@ public class Main {
 
         System.out.println(descOrder(sum(numbers)));
 
+        testing(2);
+
     }
 
     public static int descOrder(int number) { // descending...
@@ -58,6 +60,10 @@ public class Main {
         }
         return sum;
 
+    }
+
+    public static void testing(int a){
+        System.out.println("testing brancheo nomas.");
     }
 
 }
