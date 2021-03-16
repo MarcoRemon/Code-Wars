@@ -19,6 +19,9 @@ public class Main {
         System.out.println(descOrder(sum(numbers)));
 
         testing(2);
+        testing(3);
+        testing(4);
+        
 
     }
 
