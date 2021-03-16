@@ -1,13 +1,22 @@
 package MarcoRemon.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println( descOrder(999182831));
+        ArrayList<Object> numbers = new ArrayList<>();
 
+        numbers.add(50);
+        numbers.add(20);
+        numbers.add(33);
+        numbers.add("22");
+        numbers.add("3992");
+
+        System.out.println(descOrder(sum(numbers)));
 
     }
 
@@ -33,6 +42,24 @@ public class Main {
         return Integer.parseInt(String.valueOf(desc));
 
     }
+
+
+    public static int sum(List<Object> numbers) {
+
+
+        int sum = 0;
+
+        for (Object element : numbers) {
+            if (element instanceof Integer) {
+                sum += (Integer) element;
+            } else if (element instanceof String) {
+                sum += Integer.parseInt((String) element);
+            }
+        }
+        return sum;
+
+    }
+
 }
 
 
