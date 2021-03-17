@@ -1,32 +1,17 @@
 package MarcoRemon.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class Main {
 
-    private static Scanner scanner= new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        ArrayList<Object> numbers = new ArrayList<>();
+        legajos();
 
-        numbers.add(50);
-        numbers.add(20);
-        numbers.add(33);
-        numbers.add("22");
-        numbers.add("3992");
-
-        System.out.println(descOrder(sum(numbers)));
-
-        testing(2);
-        testing(3);
-        testing(4);
-
-        numeroImpar();
-        
 
     }
 
@@ -70,7 +55,7 @@ public class Main {
 
     }
 
-    public static void testing(int a){
+    public static void testing(int a) {
         System.out.println("testing brancheo nomas.");
     }
 
@@ -85,12 +70,11 @@ public class Main {
 
         while (n >= 1) {
             int last = n % 10;
-            n=n/10;
+            n = n / 10;
             if (last % 2 != 0) {
                 impares.add(last);
                 System.out.println(last + " es impar. Se agrega a la lista.");
-            }
-            else System.out.println(last + " no es impar. No se agrega a la lista");
+            } else System.out.println(last + " no es impar. No se agrega a la lista");
         }
 
 
@@ -99,6 +83,48 @@ public class Main {
         for (Integer impare : impares) {
             System.out.print(impare + " ");
         }
+
+
+    }
+
+    public static void legajos() {
+        System.out.println("Cuantos alumnos necesita comparar?");
+        int numeroAlumnos = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Comparando " + numeroAlumnos + " alumnos...");
+        List<Alumno> alumnos = new ArrayList<>();
+        int cuenta = 0;
+
+        do {
+
+
+            System.out.println("Indique el legajo del alumno numero " + (cuenta + 1));
+            int legajo = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.println("Ingrese las notas del alumno:");
+
+            System.out.print("Nota 1:");
+            int nota1 = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Nota 2:");
+            int nota2 = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Nota 3:");
+            int nota3 = scanner.nextInt();
+            scanner.nextLine();
+            Alumno alumno = new Alumno(legajo, nota1, nota2, nota3);
+            alumnos.add(alumno);
+            cuenta++;
+
+        } while (cuenta < numeroAlumnos);
+
+
+       List<Alumno> sorted=alumnos.stream().sorted().collect(Collectors.toList());
+
+       for (int i=0;i<sorted.size();i++){
+           System.out.println(alumnos.get(i).getPromedio());
+       }
 
 
     }
